@@ -1,0 +1,190 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    background: #f0f2f5;
+    color: #1c1e21;
+}
+
+.navbar {
+    background: linear-gradient(120deg, #6d28d9 0%, #db2777 100%);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+}
+
+.navbar .brand {
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+}
+
+.navbar .brand .brand-mark {
+    display: inline-block;
+    background: #fff;
+    color: #6d28d9;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 7px;
+    font-weight: 800;
+    margin-right: 2px;
+}
+
+.nav-links a, .nav-links .link-button {
+    color: #eef;
+    text-decoration: none;
+    margin-left: 16px;
+    font-size: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-links .greeting {
+    margin-left: 16px;
+    font-size: 14px;
+    color: #d7d7ff;
+}
+
+.inline-form { display: inline; }
+
+.container {
+    max-width: 640px;
+    margin: 24px auto;
+    padding: 0 16px;
+}
+
+.messages { margin-bottom: 16px; }
+.message {
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.post-form-card, .form-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+
+.post-form-card textarea,
+.form-card textarea,
+.form-card input[type="text"],
+.form-card input[type="password"],
+.form-card input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccd0d5;
+    border-radius: 6px;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    color: #333;
+    background: #e4e6eb;
+}
+
+.btn.primary { background: #6d28d9; color: #fff; }
+.btn.danger { background: #dc2626; color: #fff; }
+
+.feed { display: flex; flex-direction: column; gap: 16px; }
+
+.post-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.author { font-weight: 600; color: #6d28d9; text-decoration: none; }
+.timestamp { color: #90949c; font-size: 12px; }
+
+.post-content { margin: 8px 0; white-space: pre-wrap; }
+.post-image { width: 100%; border-radius: 8px; margin-top: 8px; }
+
+.post-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+    border-top: 1px solid #f0f2f5;
+    padding-top: 10px;
+}
+
+.like-btn, .comment-link, .delete-link {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #65676b;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.like-btn.liked { color: #e0245e; font-weight: 700; }
+
+.empty { text-align: center; color: #90949c; margin-top: 40px; }
+
+.profile-header {
+    display: flex;
+    gap: 16px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.avatar {
+    width: 80px; height: 80px; border-radius: 50%;
+    object-fit: cover;
+}
+.avatar.placeholder {
+    display: flex; align-items: center; justify-content: center;
+    background: #6d28d9; color: #fff; font-size: 32px; font-weight: 700;
+}
+
+.profile-info h2 { margin: 0; }
+.bio { color: #65676b; margin: 6px 0; }
+.stats { display: flex; gap: 16px; font-size: 14px; margin-bottom: 8px; }
+
+.follow-btn.following { background: #e4e6eb; color: #333; }
+
+.comments { background: #fff; border-radius: 10px; padding: 16px; margin-top: 16px; }
+.comment-form { display: flex; gap: 8px; margin-bottom: 12px; }
+.comment-form input { flex: 1; padding: 8px; border-radius: 6px; border: 1px solid #ccd0d5; }
+.comment { border-top: 1px solid #f0f2f5; padding: 8px 0; font-size: 14px; }
+.comment .author { margin-right: 6px; }
+.comment .timestamp { float: right; }
+
+.centered { max-width: 400px; margin: 40px auto; text-align: center; }

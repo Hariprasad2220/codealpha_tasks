@@ -1,0 +1,13 @@
+{% extends 'social/base.html' %}
+{% block title %}Delete Post - Qynera{% endblock %}
+{% block content %}
+    <section class="form-card">
+        <h2>Delete this post?</h2>
+        <p class="post-content">{{ post.content }}</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn danger">Yes, delete</button>
+            <a href="{% url 'feed' %}" class="btn">Cancel</a>
+        </form>
+    </section>
+{% endblock %}

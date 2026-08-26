@@ -1,0 +1,54 @@
+{% extends 'social/base.html' %}
+{% block title %}{{ profile_user.username }} - Qynera{% endblock %}
+{% block content %}
+    <section class="profile-header">
+        {% if profile_user.profile.avatar %}
+            <img src="{{ profile_user.profile.avatar.url }}" class="avatar" alt="avatar">
+        {% else %}
+            <div class="avatar placeholder">{{ profile_user.username|first|upper }}</div>
+        {% endif %}
+        <div class="profile-info">
+            <h2>{{ profile_user.username }}</h2>
+            <p class="bio">{{ profile_user.profile.bio|default:"No bio yet." }}</p>
+            <div class="stats">
+                <span><strong>{{ profile_user.profile.post_count }}</strong> posts</span>
+                <span class="follower-count"><strong>{{ profile_user.profile.follower_count }}</strong> followers</span>
+                <span><strong>{{ profile_user.profile.following_count }}</strong> following</span>
+            </div>
+            {% if profile_user != user %}
+                <button class="follow-btn btn {% if is_following %}following{% else %}primary{% endif %}"
+                        data-url="{% url 'toggle_follow' profile_user.username %}"
+                        data-following="{% if is_following %}true{% else %}false{% endif %}">
+                    {% if is_following %}Following{% else %}Follow{% endif %}
+                </button>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="feed">
+        {% for post in posts %}
+            <article class="post-card" data-post-id="{{ post.id }}">
+                <div class="post-header">
+                    <span class="author">{{ post.author.username }}</span>
+                    <span class="timestamp">{{ post.created_at|date:"M d, Y H:i" }}</span>
+                </div>
+                <p class="post-content">{{ post.content }}</p>
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" class="post-image" alt="post image">
+                {% endif %}
+                <div class="post-actions">
+                    <button class="like-btn {% if post.id in liked_post_ids %}liked{% endif %}"
+                            data-url="{% url 'toggle_like' post.id %}"
+                            data-liked="{% if post.id in liked_post_ids %}true{% else %}false{% endif %}">
+                        ❤ <span class="like-count">{{ post.like_count }}</span>
+                    </button>
+                    <a href="{% url 'post_detail' post.id %}" class="comment-link">
+                        💬 {{ post.comment_count }} comment{{ post.comment_count|pluralize }}
+                    </a>
+                </div>
+            </article>
+        {% empty %}
+            <p class="empty">No posts yet.</p>
+        {% endfor %}
+    </section>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'social/base.html' %}
+{% block title %}Login - Qynera{% endblock %}
+{% block content %}
+    <section class="form-card centered">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn primary">Login</button>
+        </form>
+        <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+    </section>
+{% endblock %}
